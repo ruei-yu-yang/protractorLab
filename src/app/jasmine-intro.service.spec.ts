@@ -25,6 +25,22 @@ describe('JasmineIntroService', () => {
     expect(result).toEqual(-1);
   });
 
+  it('should multiply two numbers', async () => {
+    const service: JasmineIntroService = new JasmineIntroService();
+
+    const result = service.multiplyNumber(5, 2);
+
+    expect(result).toEqual(10);
+  });
+
+  it('should divide two number', () => {
+    const service: JasmineIntroService = new JasmineIntroService();
+
+    const result = service.dividedNumber(4, 2);
+
+    expect(result).toEqual(2);
+  });
+
   afterEach(() => {
     console.log('afterEach');
   });

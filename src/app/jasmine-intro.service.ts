@@ -4,7 +4,6 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class JasmineIntroService {
-
   constructor() { }
 
   addNumber(a: number, b: number) {
@@ -13,4 +12,11 @@ export class JasmineIntroService {
   subtractNumber(a: number, b: number) {
     return a - b;
   }
+  dividedNumber(a: number, b: number): any {
+    return a / b;
+  }
+  multiplyNumber(a: number, b: number): any {
+    return a * b;
+  }
+
 }
