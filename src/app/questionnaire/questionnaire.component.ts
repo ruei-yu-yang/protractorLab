@@ -1,4 +1,4 @@
-import { Component, OnInit, NgZone } from '@angular/core';
+import { Component, NgZone, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-questionnaire',
@@ -17,15 +17,17 @@ export class QuestionnaireComponent implements OnInit {
 
   ngOnInit() {
 
-    setInterval(
-      () => {
-        if (this.timer === 0) {
-          this.timer = 59;
-        } else {
-          this.timer--;
-        }
-      },
-      1000);
+    this.ngZone.runOutsideAngular(() => {
+      setInterval(() => {
+        this.ngZone.run(() => {
+          if (this.timer === 0) {
+            this.timer = 59;
+          } else {
+            this.timer--;
+          }
+        });
+      }, 1000);
+    });
   }
 
   submit() {

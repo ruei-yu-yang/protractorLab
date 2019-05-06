@@ -1,6 +1,6 @@
 import { browser, by, element } from 'protractor';
 
-fdescribe('the user try to login', () => {
+describe('the user try to login', () => {
   beforeEach(() => {
     browser.get('/user/login');
   });
