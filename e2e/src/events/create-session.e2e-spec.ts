@@ -1,7 +1,7 @@
 import { $$, browser, by, element, ElementArrayFinder, ElementFinder } from 'protractor';
 
 
-fdescribe('add a new session', () => {
+describe('add a new session', () => {
 
   let name: ElementFinder;
   let presenter: ElementFinder;
