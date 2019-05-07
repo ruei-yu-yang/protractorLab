@@ -41,12 +41,34 @@ fdescribe('add a new event', () => {
 
     await calendarBtn.click();
 
-    await element(by.tagName('mat-month-view'))
-      .element(by.tagName('tbody'))
-      .all(by.tagName('tr')).get(2)
-      .all(by.tagName('td')).get(6)
+    const calendarElem = element(by.tagName('mat-calendar'));
+
+    await calendarElem.element(by.className('mat-calendar-period-button'))
       .click();
-    expect(await dateInput.getAttribute('value')).toBeTruthy();
+
+    await calendarElem.element(by.className('mat-calendar-previous-button'))
+      .click();
+
+    await calendarElem.element(by.tagName('mat-multi-year-view'))
+      .element(by.tagName('tbody'))
+      .all(by.tagName('td')).filter(async td => {
+        const val = await td.getText();
+        return val === '1997';
+      }).first().click();
+
+    await element(by.className('mat-calendar-body'))
+      .all(by.tagName('tr')).get(3)
+      .all(by.tagName('td')).get(3)
+      .click();
+
+    await calendarElem.element(by.tagName('mat-month-view'))
+      .element(by.tagName('tbody'))
+      .all(by.tagName('td')).filter(async td => {
+        const val = await td.getText();
+        return val === '31';
+      }).first().click();
+
+    expect(await dateInput.getAttribute('value')).toBe('12/31/1997');
   });
 
   it('should type in a time', async () => {
