@@ -1,6 +1,6 @@
 import { $, browser, by, element, ExpectedConditions as EC } from 'protractor';
 
-fdescribe('the user does search on angular.io', () => {
+describe('the user does search on angular.io', () => {
 
   const searchResultsElement = element(by.className('search-results'));
 
