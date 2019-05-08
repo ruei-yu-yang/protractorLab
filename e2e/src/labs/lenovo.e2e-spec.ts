@@ -1,6 +1,6 @@
 import { $, browser, by, element, ExpectedConditions as EC } from 'protractor';
 
-fdescribe('Search specific model no. in Lenovo site', function () {
+describe('Search specific model no. in Lenovo site', function () {
   beforeAll(async () => {
     await browser.waitForAngularEnabled(false);
   });
